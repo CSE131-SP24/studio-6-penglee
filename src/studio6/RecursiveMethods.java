@@ -12,9 +12,13 @@ public class RecursiveMethods {
 	 *         ...)
 	 */
 	public static double geometricSum(int n) {
-		
-			// FIXME compute the geometric sum for the first n terms recursively
+		if ( n == 0 ) {
 			return 0;
+		}
+		else { 
+			return Math.pow(0.5,n) + geometricSum (n-1);
+		}
+			// FIXME compute the geometric sum for the first n terms recursively
 		
 	}
 
@@ -29,9 +33,22 @@ public class RecursiveMethods {
 	public static int gcd(int p, int q) {
 		
 			// FIXME compute the gcd of p and q using recursion
+			//if(p%q) {
+				
+			//}else {
+				
+	
 			return 0;
-		
 	}
+	/**
+	 * while (q != 0) {
+			int temp = q; //2
+			q = p % q; //0
+			p = temp; //2
+		}
+		return p;
+	}
+	 */
 
 	
 
@@ -42,10 +59,24 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
+		int n = array.length;
+		int m = array.length;
+
+		int [] rev = new int [n] ;
 		
+		return helper (n,m ,rev, array);
 			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
 		
+			//[0 1 2 3 4]
+	}
+	
+	public static int[] helper (int total, int element, int[] array2, int [] array1) {
+		if (element==0) {
+		}else {
+			array2[total-element]=array1[element-1];
+			helper (total, element -1, array2, array1);
+		}
+	return array2;
 	}
 
 	/**
@@ -59,6 +90,15 @@ public class RecursiveMethods {
 	 */
 	public static void circlesUponCircles(double xCenter, double yCenter, double radius,
 			double radiusMinimumDrawingThreshold) {
+			if(radius < radiusMinimumDrawingThreshold) {
+			}
+			else {
+				StdDraw.circle(xCenter, yCenter, radius);
+				circlesUponCircles (xCenter,yCenter+radius, radius/3, radiusMinimumDrawingThreshold);
+				circlesUponCircles (xCenter,yCenter-radius, radius/3, radiusMinimumDrawingThreshold);
+				circlesUponCircles (xCenter+radius,yCenter, radius/3, radiusMinimumDrawingThreshold);
+				circlesUponCircles (xCenter-radius,yCenter, radius/3, radiusMinimumDrawingThreshold);
+			}
 		
 		// FIXME
 	}

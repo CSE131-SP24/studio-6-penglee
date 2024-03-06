@@ -27,9 +27,9 @@ public class IterativeMethods {
 	 */
 	public static int gcd(int p, int q) {
 		while (q != 0) {
-			int temp = q;
-			q = p % q;
-			p = temp;
+			int temp = q; //2
+			q = p % q; //0
+			p = temp; //2
 		}
 		return p;
 	}
